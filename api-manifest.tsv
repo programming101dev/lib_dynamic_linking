@@ -1,0 +1,5 @@
+function	provenance	current_source	current_header	original_source	original_header	linux	macos	freebsd
+p101_dlclose	POSIX	libraries/lib_dynamic_linking/src/posix/dlfcn.c	libraries/lib_dynamic_linking/include/p101_dynamic_linking/dynamic_linking.h	libraries/lib_posix/src/dlfcn.c	libraries/lib_posix/include/p101_posix/p101_dlfcn.h	yes	yes	yes
+p101_dlerror	POSIX	libraries/lib_dynamic_linking/src/posix/dlfcn.c	libraries/lib_dynamic_linking/include/p101_dynamic_linking/dynamic_linking.h	libraries/lib_posix/src/dlfcn.c	libraries/lib_posix/include/p101_posix/p101_dlfcn.h	yes	yes	yes
+p101_dlopen	POSIX	libraries/lib_dynamic_linking/src/posix/dlfcn.c	libraries/lib_dynamic_linking/include/p101_dynamic_linking/dynamic_linking.h	libraries/lib_posix/src/dlfcn.c	libraries/lib_posix/include/p101_posix/p101_dlfcn.h	yes	yes	yes
+p101_dlsym	POSIX	libraries/lib_dynamic_linking/src/posix/dlfcn.c	libraries/lib_dynamic_linking/include/p101_dynamic_linking/dynamic_linking.h	libraries/lib_posix/src/dlfcn.c	libraries/lib_posix/include/p101_posix/p101_dlfcn.h	yes	yes	yes
