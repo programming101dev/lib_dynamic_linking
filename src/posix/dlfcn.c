@@ -40,7 +40,7 @@ int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handl
     int  ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, -1);
+    P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, -1);
     p101_env_pointer_resource_id(resource_id, sizeof(resource_id), handle);
     errno   = 0;
     ret_val = dlclose(handle);
@@ -80,7 +80,7 @@ void *p101_dlopen(const struct p101_env *env, struct p101_error *err, const char
     void *ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, NULL);
+    P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, NULL);
     errno   = 0;
     ret_val = dlopen(file, mode);
 
@@ -109,7 +109,7 @@ void *p101_dlsym(const struct p101_env *env, struct p101_error *err, void *restr
     void       *ret_val;
 
     P101_TRACE(env);
-    P101_WRAPPER_FAULT_RETURN(env, err, NULL);
+    P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, NULL);
     errno = 0;
     (void)dlerror();
     ret_val  = dlsym(handle, name);
