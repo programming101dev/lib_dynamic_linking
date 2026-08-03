@@ -27,7 +27,6 @@ set(p101_dynamic_linking_HEADERS
 set(p101_dynamic_linking_LINK_LIBRARIES
         p101_error
         p101_env
-        p101_tool_event
         p101_c
 )
 
