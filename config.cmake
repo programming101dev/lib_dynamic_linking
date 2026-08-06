@@ -19,10 +19,10 @@ set(BSD_STANDARD_FLAGS -D_BSD_SOURCE -D__BSD_VISIBLE)
 
 set(LIBRARY_TARGETS p101_dynamic_linking)
 set(p101_dynamic_linking_SOURCES
-        src/dynamic_linking.c
+        src/dlfcn.c
 )
 set(p101_dynamic_linking_HEADERS
-        include/p101_dynamic_linking/dynamic_linking.h
+        include/p101_dynamic_linking/p101_dlfcn.h
 )
 set(p101_dynamic_linking_LINK_LIBRARIES
         p101_error

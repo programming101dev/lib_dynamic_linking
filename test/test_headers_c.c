@@ -1,4 +1,4 @@
-#include <p101_dynamic_linking/dynamic_linking.h>
+#include <p101_dynamic_linking/p101_dlfcn.h>
 
 int main(void)
 {

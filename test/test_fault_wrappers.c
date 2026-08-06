@@ -8,7 +8,7 @@
 #include <limits.h>
 #include <math.h>
 #include <netinet/in.h>
-#include <p101_dynamic_linking/dynamic_linking.h>
+#include <p101_dynamic_linking/p101_dlfcn.h>
 #include <p101_env/env.h>
 #include <p101_error/error.h>
 #include <pthread.h>
