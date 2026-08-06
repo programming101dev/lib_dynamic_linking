@@ -34,7 +34,6 @@
  */
 
 #include <dlfcn.h>
-#include <p101_env/wrapper.h>
 
 static int dl_error_code(void);
 
