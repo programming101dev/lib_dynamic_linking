@@ -1,5 +1,5 @@
-function	test_kind	test_source
-p101_dlclose	fault	test/test_fault_wrappers.c
-p101_dlopen	fault	test/test_fault_wrappers.c
-p101_dlsym	fault	test/test_fault_wrappers.c
-p101_dlerror	behavior	test/test_behavior.c
+function	function_usr	test_kind	test_source
+p101_dlclose	c:@F@p101_dlclose	fault	test/test_fault_wrappers.c
+p101_dlopen	c:@F@p101_dlopen	fault	test/test_fault_wrappers.c
+p101_dlsym	c:@F@p101_dlsym	fault	test/test_fault_wrappers.c
+p101_dlerror	c:@F@p101_dlerror	behavior	test/test_behavior.c

@@ -1,3 +1,3 @@
 # dlerror is the native error-channel probe used inside each dynamic-loader
 # wrapper; making it a nested wrapper call would change that boundary.
-src/posix/dlfcn.c:*:dlerror
+src/dynamic_linking.c		c:@F@dlerror

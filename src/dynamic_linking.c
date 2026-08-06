@@ -47,11 +47,13 @@ int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handl
 
     if(ret_val != 0)
     {
+        char       *raw_message;
         const char *str;
         int         err_code;
 
-        err_code = dl_error_code();
-        str      = dlerror();
+        err_code    = dl_error_code();
+        raw_message = dlerror();
+        str         = raw_message;
         P101_ERROR_RAISE_SYSTEM(err, str, err_code);
     }
     else
@@ -86,11 +88,13 @@ void *p101_dlopen(const struct p101_env *env, struct p101_error *err, const char
 
     if(ret_val == NULL)
     {
+        char       *raw_message;
         const char *str;
         int         err_code;
 
-        err_code = dl_error_code();
-        str      = dlerror();
+        err_code    = dl_error_code();
+        raw_message = dlerror();
+        str         = raw_message;
         P101_ERROR_RAISE_SYSTEM(err, str, err_code);
     }
     else
@@ -104,17 +108,20 @@ void *p101_dlopen(const struct p101_env *env, struct p101_error *err, const char
 
 void *p101_dlsym(const struct p101_env *env, struct p101_error *err, void *restrict handle, const char *restrict name)
 {
+    char       *raw_message;
     const char *msg;
     int         err_code;
     void       *ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, ret_val, NULL);
-    errno = 0;
-    (void)dlerror();
-    ret_val  = dlsym(handle, name);
-    err_code = dl_error_code();
-    msg      = dlerror();
+    errno       = 0;
+    raw_message = dlerror();
+    (void)raw_message;
+    ret_val     = dlsym(handle, name);
+    err_code    = dl_error_code();
+    raw_message = dlerror();
+    msg         = raw_message;
 
     if(msg != NULL)
     {
