@@ -54,10 +54,16 @@ static int dl_error_code(void)
 
 int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handle)
 {
-    int ret_val;
+    char resource_id[P101_ENV_POINTER_RESOURCE_ID_SIZE];
+    int  ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, ret_val, -1);
+    /*
+     * dlclose frees the object, so the pointer value is indeterminate by the time
+     * the release record is written. Spell the id while it is still valid.
+     */
+    p101_env_pointer_resource_id(resource_id, sizeof(resource_id), handle);
     errno   = 0;
     ret_val = dlclose(handle);
 
@@ -74,7 +80,7 @@ int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handl
     }
     else
     {
-        P101_TRACK_POINTER_RESOURCE_RELEASE(env, P101_RESOURCE_CLASS_DYNAMIC_LIBRARY, handle, NULL);
+        P101_TRACK_RESOURCE_RELEASE(env, P101_RESOURCE_CLASS_DYNAMIC_LIBRARY, resource_id, NULL);
     }
 
     P101_WRAPPER_DONE(env);
