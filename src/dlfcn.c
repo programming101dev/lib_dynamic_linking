@@ -15,6 +15,7 @@
  */
 
 #include "p101_dynamic_linking/p101_dlfcn.h"
+#include <p101_env/resource_classes.h>
 #include <p101_env/wrapper.h>
 
 /*
@@ -53,12 +54,10 @@ static int dl_error_code(void)
 
 int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handle)
 {
-    char resource_id[P101_ENV_POINTER_RESOURCE_ID_SIZE];
-    int  ret_val;
+    int ret_val;
 
     P101_TRACE(env);
     P101_WRAPPER_FAULT_RETURN_SYSTEM(env, err, ret_val, -1);
-    p101_env_pointer_resource_id(resource_id, sizeof(resource_id), handle);
     errno   = 0;
     ret_val = dlclose(handle);
 
@@ -75,7 +74,7 @@ int p101_dlclose(const struct p101_env *env, struct p101_error *err, void *handl
     }
     else
     {
-        P101_TRACK_RESOURCE_RELEASE(env, "dynamic-library", resource_id, NULL);
+        P101_TRACK_POINTER_RESOURCE_RELEASE(env, P101_RESOURCE_CLASS_DYNAMIC_LIBRARY, handle, NULL);
     }
 
     P101_WRAPPER_DONE(env);
@@ -116,7 +115,7 @@ void *p101_dlopen(const struct p101_env *env, struct p101_error *err, const char
     }
     else
     {
-        P101_TRACK_POINTER_RESOURCE_ACQUIRE(env, "dynamic-library", ret_val, 0U, file);
+        P101_TRACK_POINTER_RESOURCE_ACQUIRE(env, P101_RESOURCE_CLASS_DYNAMIC_LIBRARY, ret_val, 0U, file);
     }
 
     P101_WRAPPER_DONE(env);
