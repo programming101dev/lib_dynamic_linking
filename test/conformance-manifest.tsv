@@ -1,0 +1,5 @@
+function	function_usr	require_arguments	require_result
+p101_dlclose	c:@F@p101_dlclose	false	false
+p101_dlerror	c:@F@p101_dlerror	false	false
+p101_dlopen	c:@F@p101_dlopen	false	false
+p101_dlsym	c:@F@p101_dlsym	false	false

@@ -1,0 +1,4 @@
+function	function_usr	domain	symbol_header	linux_faults	macos_faults	freebsd_faults	posix_faults	linux_conditional	macos_conditional	freebsd_conditional
+p101_dlclose	c:@F@p101_dlclose	system	dlfcn.h	EINVAL	EINVAL	EINVAL	EINVAL			
+p101_dlopen	c:@F@p101_dlopen	system	dlfcn.h	EINVAL	EINVAL	EINVAL	EINVAL			
+p101_dlsym	c:@F@p101_dlsym	system	dlfcn.h	EINVAL	EINVAL	EINVAL	EINVAL			
